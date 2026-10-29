@@ -1,0 +1,3 @@
+Store every GEE script here (copy-paste from the Code Editor).
+Name them: 01_export_points.js, 02_export_monthly.js, ...
+Record the date run and the year exported in LOG.md.
