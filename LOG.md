@@ -28,3 +28,32 @@ Format: date | who | what was done | settings / file names | notes
 - Optional: test whether 2018 data is usable.
 - KVK / Krishibhavan request: [sent on date / not yet sent].
 - Stage 4: lag features and the next-month target.
+
+## 2026-10-30 – Ground Truth Strategy Update
+
+### Decision
+
+Not using KVK field data as the primary ground truth.
+
+### Why not KVK
+
+- KVKs mainly hold crop calendars, soil test records and demonstration plot details, not continuous soil-moisture time series.
+- Getting data would need official letters, repeated visits and approvals, with an uncertain outcome and timeline.
+- Collecting our own field measurements on every Sentinel-2 pass date is not practical within the project schedule.
+
+### Approach
+
+Use public reference/proxy data to validate the models:
+
+- **Moisture reference:** ERA5-Land (primary) and NASA SMAP soil moisture for the Kannur region.
+- **Stress labels:** Vegetation Health Index (VCI/TCI) or a CWSI-style index, used to create Low/Moderate/High classes.
+- **Extra input features:** CHIRPS/IMD rainfall.
+- **Optional:** a few spot readings with a low-cost soil moisture sensor as a sanity check.
+
+### Limitations
+
+- Reference products are coarse (about 9 km or more) compared to Sentinel-2 (10–20 m), so validation will be at an aggregated regional level, not individual fields.
+- These are modelled/proxy values, not direct in-situ measurements, so results show agreement with reference data and not absolute field accuracy.
+- Monsoon cloud cover in Kannur will create gaps in optical data (to be handled with interpolation or Sentinel-1 radar).
+- Findings may not generalise to other regions or crop types.
+- To be confirmed with supervisor that reference-based validation is acceptable.
