@@ -1,0 +1,22 @@
+Loaded 7 files: 1721 points x 84 months
+Rows with extreme reflectance set to missing: 5
+Rows in near-empty months set to missing:     1
+Soil moisture: 19 masked points filled from nearest valid point; remaining NaN = 0
+Radar: 6884 rows forward-filled (limit 2 months); still missing = 0
+
+Validating fill methods on NDMI (climatology from years <= 2021, scored on (2022, 2023)):
+method                   ANOM    CLIM    LOCF
+season            gap                        
+monsoon (Jun-Sep) 1    0.1846  0.1398  0.1814
+                  2    0.1929  0.1279  0.2330
+                  3    0.1747  0.1280  0.2966
+other months      1    0.1027  0.1078  0.1225
+                  2    0.1235  0.1088  0.1792
+                  3    0.1291  0.1103  0.2116
+
+Building final filled columns with method 'clim' (climatology from years <= 2023)
+
+Saved D:\Project\crop-stress-kannur\data\processed\monthly_filled.csv  shape=(144564, 28)
+optical_valid share: 0.869
+remaining NaN in *_fill columns: 0
+REMINDER: score models only where optical_valid == 1.

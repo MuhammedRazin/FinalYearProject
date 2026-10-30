@@ -1,0 +1,12 @@
+points with any missing soil_moist: 19
+points missing in EVERY month:      19
+
+year-months with missing VV (fraction of points):
+year  month
+2019  4        1.0
+2020  2        1.0
+2023  3        1.0
+      12       1.0
+
+rows with B3 or B4 > 1: 4
+rows with B4 < 0.005:   1

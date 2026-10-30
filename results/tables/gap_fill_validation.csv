@@ -1,0 +1,19 @@
+season,gap,method,n,MAE,RMSE
+monsoon (Jun-Sep),1,ANOM,4831,0.1444,0.1846
+monsoon (Jun-Sep),1,CLIM,4831,0.1019,0.1398
+monsoon (Jun-Sep),1,LOCF,4831,0.1279,0.1814
+monsoon (Jun-Sep),2,ANOM,7072,0.1474,0.1929
+monsoon (Jun-Sep),2,CLIM,7072,0.0924,0.1279
+monsoon (Jun-Sep),2,LOCF,7072,0.176,0.233
+monsoon (Jun-Sep),3,ANOM,7159,0.1349,0.1747
+monsoon (Jun-Sep),3,CLIM,7159,0.0929,0.128
+monsoon (Jun-Sep),3,LOCF,7159,0.2464,0.2966
+other months,1,ANOM,25564,0.0736,0.1027
+other months,1,CLIM,25564,0.0778,0.1078
+other months,1,LOCF,25564,0.0883,0.1225
+other months,2,ANOM,22844,0.0917,0.1235
+other months,2,CLIM,22844,0.0783,0.1088
+other months,2,LOCF,22844,0.1373,0.1792
+other months,3,ANOM,22213,0.0974,0.1291
+other months,3,CLIM,22213,0.0797,0.1103
+other months,3,LOCF,22213,0.1673,0.2116
