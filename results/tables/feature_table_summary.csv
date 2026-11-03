@@ -1,0 +1,7 @@
+split_time,spatial_holdout,rows,points,scorable
+test,0,17964,1497,13654
+test,1,2688,224,1952
+train,0,88323,1497,79439
+train,1,13216,224,11927
+val,0,17964,1497,14792
+val,1,2688,224,2116

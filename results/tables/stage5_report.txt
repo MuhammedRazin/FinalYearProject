@@ -1,0 +1,42 @@
+Loading D:\Project\crop-stress-kannur\data\processed\features.csv ...
+
+Train rows : 74,948 (1497 points, hold-out excluded)
+Val scorable rows : 14,792
+Clf train  : 74,948  |  Clf val scorable  : 14,792
+Features   : 38
+
+-- REGRESSION (target_NDMI) ------------------------------------
+  base_persistence           RMSE 0.1320  MAE 0.0909  R2 0.5222
+  base_seasonal_naive        RMSE 0.0989  MAE 0.0706  R2 0.7315
+  base_clim                  RMSE 0.0933  MAE 0.0705  R2 0.7610
+  Ridge                      RMSE 0.1077  MAE 0.0836  R2 0.6818
+  RandomForest               RMSE 0.0860  MAE 0.0637  R2 0.7970
+  XGBoost                    RMSE 0.0874  MAE 0.0649  R2 0.7906
+  Models saved.
+
+-- CLASSIFICATION (target_class_proxy) --------------------------
+  base_persistence           Acc 0.6937  wF1 0.6918  F1[Low 0.783  Mod 0.527  High 0.718]
+  base_seasonal_naive        Acc 0.7622  wF1 0.7625  F1[Low 0.826  Mod 0.606  High 0.822]
+  base_clim                  Acc 0.7543  wF1 0.7602  F1[Low 0.823  Mod 0.614  High 0.812]
+  base_majority_class        Acc 0.4302  wF1 0.2588  F1[Low 0.602  Mod 0.000  High 0.000]
+  RandomForest               Acc 0.7841  wF1 0.7802  F1[Low 0.848  Mod 0.620  High 0.837]
+  XGBoost                    Acc 0.7824  wF1 0.7814  F1[Low 0.846  Mod 0.634  High 0.831]
+  Models saved.
+
+  Scores saved in D:\Project\crop-stress-kannur\results\tables
+  Scatter plot saved -> D:\Project\crop-stress-kannur\results\figures\stage5_val_scatter.png
+  Confusion matrix saved -> D:\Project\crop-stress-kannur\results\figures\stage5_confusion_matrix.png
+
+Top-10 features (RF regressor, impurity importance):
+NDMI_fill         0.312989
+rain_sum3         0.123281
+rain_mm           0.080087
+rain_sum2         0.078534
+rain_mm_lag1      0.073518
+NDMI_fill_lag1    0.031906
+NDVI_fill         0.029180
+NDMI_diff1        0.024393
+month_cos         0.019377
+NDWI_fill         0.015242
+
+[DONE] Stage 5 complete.

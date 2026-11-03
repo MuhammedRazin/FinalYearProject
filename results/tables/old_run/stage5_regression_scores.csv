@@ -1,0 +1,7 @@
+model,RMSE,MAE,R2
+base_persistence,0.132,0.0909,0.5222
+base_seasonal_naive,0.0989,0.0706,0.7315
+base_clim,0.0933,0.0705,0.761
+Ridge,0.1075,0.0832,0.6831
+RandomForest,0.0862,0.0638,0.7961
+XGBoost,0.0872,0.0646,0.7913

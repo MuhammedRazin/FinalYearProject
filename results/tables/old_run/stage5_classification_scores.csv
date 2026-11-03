@@ -1,0 +1,3 @@
+model,Accuracy,wF1,F1_Low,F1_Moderate,F1_High
+RandomForest,0.7843,0.7806,0.848,0.622,0.837
+XGBoost,0.7794,0.7781,0.843,0.629,0.829

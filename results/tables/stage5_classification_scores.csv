@@ -1,0 +1,7 @@
+model,Accuracy,wF1,F1_Low,F1_Moderate,F1_High
+base_persistence,0.6937,0.6918,0.783,0.527,0.718
+base_seasonal_naive,0.7622,0.7625,0.826,0.606,0.822
+base_clim,0.7543,0.7602,0.823,0.614,0.812
+base_majority_class,0.4302,0.2588,0.602,0.0,0.0
+RandomForest,0.7841,0.7802,0.848,0.62,0.837
+XGBoost,0.7824,0.7814,0.846,0.634,0.831
