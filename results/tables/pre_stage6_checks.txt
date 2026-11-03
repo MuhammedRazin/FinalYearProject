@@ -1,0 +1,61 @@
+1. FILL METHOD
+[PASS ] FILL_METHOD in src/03_gap_handling.py: "clim"
+[PASS ] data really contains climatology fills: 0.0% of (point, month) groups have fills that differ between years (climatology fills are identical across years, so this should be ~0%)
+
+2. FILE ORDER (each file should be newer than the one before it)
+   2026-10-29 16:51  raw CSVs (newest)
+   2026-10-30 17:19  src/03_gap_handling.py
+   2026-10-30 17:19  monthly_filled.csv
+   2026-10-31 15:01  features.csv
+   2026-11-03 11:57  src/05_train.py
+   2026-11-03 11:58  models/rf_reg.pkl
+[PASS ] raw -> monthly_filled -> features -> models
+[PASS ] models newer than 05_train.py (so the patched script produced them)
+
+3. FEATURE LIST
+[PASS ] all listed features exist in features.csv
+[PASS ] saved model expects the same number of features: model 38, list 38
+[PASS ] models/feature_list.json equals data/processed/feature_list.json
+
+4. SPLITS
+split_time  spatial_holdout  rows  points  scorable
+      test                0 17964    1497     13654
+      test                1  2688     224      1952
+     train                0 88323    1497     79439
+     train                1 13216     224     11927
+       val                0 17964    1497     14792
+       val                1  2688     224      2116
+[PASS ] hold-out blocks never overlap training blocks: 224 hold-out points in 5 blocks (13% of points)
+
+5. SCORABLE ROWS (target_valid=1, seen points) PER TARGET MONTH
+target_year   2024  2025
+target_month            
+1             1497  1497
+2             1497  1497
+3             1497  1497
+4             1497  1497
+5             1461  1382
+6              754   650
+7                0   344
+8             1241     0
+9             1000   799
+10            1354  1497
+11            1497  1497
+12            1497  1497
+   months with scorable rows for under 40% of the 1497 seen points (read results for these with care): [(2024, 7), (2025, 7), (2025, 8)]
+
+6. PROXY CLASS MIX (scorable rows; 0 Low, 1 Moderate, 2 High)
+target_class_proxy    0.0    1.0    2.0
+split_time                             
+test                0.401  0.336  0.263
+train               0.417  0.305  0.277
+val                 0.426  0.283  0.291
+
+7. JUNE-SEPTEMBER 2022 (July showed 100% valid points in a monsoon month)
+       valid_frac  mean_n_s2   rain_mm   NDVI   NDMI     B4
+month                                                      
+6           0.559      0.673   572.690  0.483  0.218  0.097
+7           0.996      1.092  1373.532  0.655  0.230  0.051
+8           0.000      0.001   951.704    NaN    NaN    NaN
+9           0.561      0.722   245.003  0.628  0.265  0.067
+   Compare July with June and September. If n_s2 is about 1 and NDVI/NDMI are far higher than neighbours, treat July 2022 as low confidence.
