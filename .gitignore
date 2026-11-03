@@ -16,3 +16,4 @@ __pycache__/
 *.pt
 *.joblib
 .DS_Store
+models/*.pkl
