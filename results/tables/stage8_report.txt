@@ -1,0 +1,81 @@
+FITTING
+  test 2021, history 1: trained on 16,418 rows, scored 17,202
+  test 2021, history 2: trained on 27,451 rows, scored 17,202
+  test 2021, history all: trained on 27,451 rows, scored 17,202
+  test 2022, history 1: trained on 17,202 rows, scored 15,103
+  test 2022, history 2: trained on 33,620 rows, scored 15,103
+  test 2022, history 3: trained on 44,653 rows, scored 15,103
+  test 2022, history all: trained on 44,653 rows, scored 15,103
+  test 2023, history 1: trained on 15,103 rows, scored 15,192
+  test 2023, history 2: trained on 32,305 rows, scored 15,192
+  test 2023, history 3: trained on 48,723 rows, scored 15,192
+  test 2023, history 4: trained on 59,756 rows, scored 15,192
+  test 2023, history all: trained on 59,756 rows, scored 15,192
+  test 2024, history 1: trained on 15,192 rows, scored 14,792
+  test 2024, history 2: trained on 30,295 rows, scored 14,792
+  test 2024, history 3: trained on 47,497 rows, scored 14,792
+  test 2024, history 4: trained on 63,915 rows, scored 14,792
+  test 2024, history 5: trained on 74,948 rows, scored 14,792
+  test 2024, history all: trained on 74,948 rows, scored 14,792
+  test 2025, history 1: trained on 14,792 rows, scored 13,654
+  test 2025, history 2: trained on 29,984 rows, scored 13,654
+  test 2025, history 3: trained on 45,087 rows, scored 13,654
+  test 2025, history 4: trained on 62,289 rows, scored 13,654
+  test 2025, history 5: trained on 78,707 rows, scored 13,654
+  test 2025, history all: trained on 89,740 rows, scored 13,654
+
+A. CLIMATOLOGY RMSE   (rows = test year, columns = years of history)
+history         1       2       3       4       5     all
+test_year                                                
+2021       0.1157  0.1237     NaN     NaN     NaN  0.1237
+2022       0.1235  0.1136  0.1207     NaN     NaN  0.1207
+2023       0.1530  0.1347  0.1239  0.1054     NaN  0.1054
+2024       0.1006  0.1052  0.1014  0.0968  0.0933  0.0933
+2025       0.1090  0.1065  0.0921  0.0899  0.0901  0.0930
+
+A. RANDOM FOREST RMSE   (rows = test year, columns = years of history)
+history         1       2       3       4       5     all
+test_year                                                
+2021       0.0960  0.0934     NaN     NaN     NaN  0.0934
+2022       0.1025  0.0968  0.0951     NaN     NaN  0.0951
+2023       0.1032  0.0966  0.0943  0.0927     NaN  0.0927
+2024       0.0905  0.0884  0.0870  0.0870  0.0860  0.0860
+2025       0.0928  0.0920  0.1014  0.0995  0.0996  0.0975
+
+A. RF GAIN VS CLIMATOLOGY AT EQUAL HISTORY (%)   (rows = test year, columns = years of history)
+history       1     2     3     4     5   all
+test_year                                    
+2021       17.0  24.5   NaN   NaN   NaN  24.5
+2022       17.0  14.8  21.2   NaN   NaN  21.2
+2023       32.6  28.3  23.9  12.1   NaN  12.1
+2024       10.1  16.0  14.2  10.1   7.8   7.8
+2025       14.9  13.6 -10.0 -10.7 -10.5  -4.8
+
+A. BLEND GAIN VS CLIMATOLOGY AT EQUAL HISTORY (%)   (rows = test year, columns = years of history)
+history       1     2     3     4     5   all
+test_year                                    
+2021       19.9  23.4   NaN   NaN   NaN  23.4
+2022       18.2  16.4  19.8   NaN   NaN  19.8
+2023       25.3  22.4  20.3  15.4   NaN  15.4
+2024       18.1  19.1  17.8  15.6  14.7  14.7
+2025       19.9  20.3  10.2   7.8   8.3  11.9
+
+B. TEST YEARS (2024, 2025) POOLED (identical rows for every history length)
+history     n  RMSE_clim  RMSE_RF  RMSE_blend          gain_RF_ym        gain_RF_block        gain_blend_ym
+      1 28446     0.1047   0.0916      0.0847 +11.5 [-1.2, +24.0]  +12.1 [+9.2, +15.4] +19.0 [+13.4, +24.1]
+      2 28446     0.1058   0.0902      0.0850 +14.0 [-0.8, +27.3] +14.9 [+12.5, +16.9] +19.7 [+12.3, +26.3]
+      3 28446     0.0971   0.0942      0.0830 +2.6 [-15.0, +20.6]    +2.7 [-1.0, +7.0]  +14.3 [+7.3, +20.6]
+      4 28446     0.0935   0.0932      0.0822 +0.4 [-15.6, +15.1]    +0.3 [-2.6, +3.0]  +11.9 [+5.3, +17.6]
+      5 28446     0.0918   0.0928      0.0810 -0.9 [-17.3, +11.8]    -1.1 [-4.5, +1.8]  +11.8 [+6.3, +16.3]
+    all 28446     0.0932   0.0917      0.0807 +1.9 [-12.8, +13.0]    +1.6 [-1.6, +4.4]  +13.4 [+9.2, +17.2]
+
+C. RF TRAINED ON SHORT HISTORY vs CLIMATOLOGY FROM ALL HISTORY (test years (2024, 2025))
+RF_history     n  RMSE_RF  RMSE_clim_all_history  gain_vs_clim_all_%  gain_2024_%  gain_2025_%               ci_ym
+         1 28446    0.092                  0.093               1.695        3.010        0.281  +1.8 [-8.8, +11.0]
+         2 28446    0.090                  0.093               3.262        5.286        1.102  +3.5 [-7.9, +11.7]
+         3 28446    0.094                  0.093              -1.073        6.769       -8.980 -0.8 [-17.3, +13.3]
+
+CHECK: RF with all history vs Stage 7 RF, largest RMSE difference = 0.00004 (should be about 0; small differences come from the row filter)
+
+[DONE] tables: results/tables/stage8_*.csv   figure: results/figures/stage8_history_curve.png
+HOW TO READ: if the RF gain in B stays clearly positive at short history and shrinks or vanishes at long history, the data-efficiency explanation holds. If RF is not better than climatology even at 1-2 years, it does not. Section C asks whether 1-3 years of RF data can match climatology built from every year.
