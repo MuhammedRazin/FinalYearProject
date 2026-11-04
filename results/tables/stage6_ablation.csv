@@ -1,0 +1,10 @@
+config,n_features,RMSE,R2,gain_vs_clim_pct
+all features,38,0.0869,0.7926,6.8
+without rain,32,0.0906,0.775,3.0
+without optical,25,0.1273,0.5555,-36.4
+without soil,34,0.0873,0.7907,6.4
+without radar,30,0.0883,0.7861,5.4
+without season,36,0.0871,0.792,6.7
+without flags,33,0.087,0.7924,6.8
+rain + season only (no satellite),8,0.1508,0.376,-61.6
+optical + season only (no rain/soil/radar),15,0.0989,0.7314,-6.0
